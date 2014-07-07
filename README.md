@@ -23,8 +23,10 @@ To begin:
 * Create .env file (this is a hash! so we can access things like a hash)
 * Add .env to .gitignore file
 * Add API key and sectret to .env file as a hash with format
-** PETFINDER_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-** PETFINDER_SECRET=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
+PETFINDER_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+PETFINDER_SECRET=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
 * Run ```bundle```
 * Run ```rake db:setup```
 * Enjoy!

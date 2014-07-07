@@ -43,3 +43,21 @@ gem 'petfinder'
 
 # Hide secret key
 gem 'dotenv-rails', groups: [:development, :test]
+
+# Gems for rspec
+group :development, :test do
+  gem 'factory_girl_rails'
+  gem 'faker'
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'rspec-rails'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'poltergeist'
+  gem 'shoulda-matchers'
+end
+

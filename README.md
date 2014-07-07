@@ -2,10 +2,10 @@
 Tinder for Rescue Dogs
 
 ## Features
-* Guest users can swipe left (click arrow) through rescue dogs "posters" in their area
-* Guest users can swipe right (click button) to get more information about a dog
+* Guest users can swipe right (click arrow) through rescue dogs "posters" in their area
+* Guest users can swipe left (click plus) to get more information about a dog
 * Registered users can add a dog to their favorites
-* Registered users can see all dogs they have swiped right on
+* Registered users can see all dogs they have swiped left on
 * Registered users can share a dog "poster" to twitter or facebook
 
 ## Description

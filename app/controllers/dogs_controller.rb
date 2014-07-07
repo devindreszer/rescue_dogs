@@ -1,10 +1,6 @@
 class DogsController < ApplicationController
 
   def show
-    @dog = Dog.find(params[:id])
-  end
-
-  def create
     petfinder_dog = Dogfinder.new.random(params[:zip])
 
     unless Dog.find_by(petfinder_id: petfinder_dog.id).nil?
@@ -22,7 +18,7 @@ class DogsController < ApplicationController
     end
 
     if @dog.save
-      redirect_to dog_path(@dog.id)
+      @dog
     end
   end
 

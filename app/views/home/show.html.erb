@@ -1,6 +1,6 @@
 <h1>Browse rescue dogs in your area</h1>
 
-<%= form_tag(dogs_path) do %>
+<%= form_tag(random_dog_path, method: :get) do %>
   <%= text_field_tag :zip, params[:zip], placeholder: "Enter Zip Code" %>
   <%= submit_tag "Search", name: nil %>
 <% end %>

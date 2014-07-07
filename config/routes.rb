@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  resources :dogs, only: [:show, :create]
+  resource :random_dog, only: :show
   root 'home#show'
 end

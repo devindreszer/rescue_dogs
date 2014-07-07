@@ -1,0 +1,2 @@
+<%= image_tag(@random_dog.photos.first.large, alt: @random_dog.name, class: "random-dog") %>
+<%= link_to "Next", random_dog_path(zip: params[:zip]), method: :get %>

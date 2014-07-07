@@ -19,12 +19,12 @@ I want to be able to see a dog poster from a dog near the zipcode entered,
 So that I can decide to see more information about a dog or swipe to the next dog
 
 As a guest (or registered) user,
-When I swipe left,
+When I swipe right (or click the right icon),
 I want to see another dog poster from a dog near the zipcode entered,
 So that I can decide to see more information about a dog or swipe to the next dog
 
 As a guest (or registered) user,
-When I swipe right,
+When I swipe left (or click the plus icon,
 I want to see more information about the dog,
 So that I can see if I would like the dog
 

@@ -1,2 +1,5 @@
-<%= image_tag(@random_dog.photos.first.large, alt: @random_dog.name, class: "random-dog") %>
-<%= link_to "Next", random_dog_path(zip: params[:zip]), method: :get %>
+<div class="random-dog-container">
+  <%= image_tag(@random_dog.photos.first.large, alt: @random_dog.name, class: "random-dog") %>
+</div>
+<%= link_to "Plus", dogs_path(id: @random_dog.id), method: :post %>
+| <%= link_to "Next", random_dog_path(zip: params[:zip]), method: :get %>

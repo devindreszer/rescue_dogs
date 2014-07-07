@@ -5,6 +5,10 @@ class Dogfinder
     client.find_pets("dog", zip, count: COUNT).sample
   end
 
+  def find(id)
+    client.pet(id)
+  end
+
   private
 
   def client

@@ -16,11 +16,15 @@ Intended to test our ability to create a functional Rails app.
 This project was conceptualized, scoped and developed in one week.
 
 ## Installation
-This app requires an API key from [petfinder.com](https://www.petfinder.com/developers/api-docs)
+This app requires an API key and secret from [petfinder.com](https://www.petfinder.com/developers/api-docs)
 
 To begin:
 * Fork and clone
-* Add API key to a .env file as a hash with format: PETFINDER_API=XXXXX
+* Create .env file (this is a hash! so we can access things like a hash)
+* Add .env to .gitignore file
+* Add API key and sectret to .env file as a hash with format
+** PETFINDER_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+** PETFINDER_SECRET=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 * Run ```bundle```
 * Run ```rake db:setup```
 * Enjoy!

@@ -12,25 +12,26 @@ Preliminary models
 * belongs_to :shelter
 * name
 * image
-* breed
+* breeds
 * size
 * gender
 * age
 * description
 * url
+* is_favorite
 
 ## Shelters
 * has_many :dogs
 * has_one :address
 * name
-* number
-* address
+* phone
+* email
 * url
 
 ## Address
 * belongs_to :shelter
-* street_number
-* street_name
+* address1
+* address2
 * city
 * state
 * zip

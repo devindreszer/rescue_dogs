@@ -1,28 +1,29 @@
-== README
+# RescueDogs
+Tinder for Rescue Dogs
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Features
+* Guest users can swipe left (click arrow) through rescue dogs "posters" in their area
+* Guest users can swipe right (click button) to get more information about a dog
+* Registered users can add a dog to their favorites
+* Registered users can see all dogs they have swiped right on
+* Registered users can share a dog "poster" to twitter or facebook
 
-Things you may want to cover:
+## Description
+This project was created to meet requirements for Project 1 in General Assembly's Web Development Immersive Program (June 2014).
 
-* Ruby version
+Intended to test our ability to create a functional Rails app.
 
-* System dependencies
+This project was conceptualized, scoped and developed in one week.
 
-* Configuration
+## Installation
+This app requires an API key from [petfinder.com](https://www.petfinder.com/developers/api-docs)
 
-* Database creation
+To begin:
+* Fork and clone
+* Add API key to a .env file as a hash with format: PETFINDER_API=XXXXX
+* Run ```bundle```
+* Run ```rake db:setup```
+* Enjoy!
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+## Contact
+Contact the developer on [GitHub](https://github.com/devindreszer/)

@@ -82,9 +82,9 @@ I want to remove a dog match,
 So that I have control over my dog matches
 
 As a registered user,
-When I click Add to Favorites from a dog info page,
-I want it to be saved to My Favorites,
-So that I can look at them later
+When I click Add to Favorites from a dog info page or the dog matches page,
+I want it to be marked as a favorite,
+So that I can filter my dog matches by favorites
 
 As a registered user,
 When I click share on twitter or facebook,

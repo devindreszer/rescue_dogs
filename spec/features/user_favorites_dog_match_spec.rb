@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-feature 'Signed in user removes a dog matches' do
-  scenario 'by clicking remove from a dog match' do
+feature 'Signed in user can favorite a dog' do
+  scenario 'by clicking favorite on a dog match' do
     devin = create(:user, username: "devin", email: "devin@example.com", password: "password")
     visit root_path
     sign_in_as(devin)
@@ -10,8 +10,8 @@ feature 'Signed in user removes a dog matches' do
     click_link "Plus"
     click_link "Dog Matches"
 
-    first(".dog-list").click_link("Remove")
+    first(".dog-list").click_link("Favorite")
 
-    expect(page).to have_content "Dog Matches"
+    expect(page).to have_content "Favorited"
   end
 end

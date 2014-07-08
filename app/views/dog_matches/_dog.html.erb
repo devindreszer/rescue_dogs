@@ -1,0 +1,15 @@
+<hr>
+
+<div class="dog-list">
+  <div><%= link_to image_tag(dog.image, alt: dog.name), dog_path(dog.id) %></div>
+  <h2><%= link_to dog.name, dog_path(dog.id) %></h2>
+
+  <% dog_match = dog.dog_matches.where(user_id: current_user.id).first %>
+  <% if dog_match.is_favorite.present? && dog_match.is_favorite %>
+    <li class="inline"><%= link_to "Favorited", dog_match_path(dog_match.id, is_favorite: false), method: :patch %>
+  <% else %>
+    <li class="inline"><%= link_to "Favorite", dog_match_path(dog_match.id, is_favorite: true), method: :patch %>
+  <% end %>
+
+  <li class="inline"><%= link_to "Remove", dog_match_path(dog.id), method: :delete %></li>
+</div>

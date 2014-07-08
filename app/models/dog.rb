@@ -1,5 +1,7 @@
 class Dog < ActiveRecord::Base
   belongs_to :shelter
+  has_many :dog_matches
+  has_many :users, through: :dog_matches
 
   def set_from_petfinder(petfinder_dog)
     self.petfinder_id = petfinder_dog.id

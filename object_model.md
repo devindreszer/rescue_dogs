@@ -25,7 +25,6 @@ Preliminary models
 ## Dog_Match
 * belongs_to :user
 * belongs_to :dog
-* is_plus
 * is_favorite
 
 ## Shelter

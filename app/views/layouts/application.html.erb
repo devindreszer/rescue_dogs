@@ -2,10 +2,10 @@
 <html>
 <head>
   <title>RescueDogs</title>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag '//cdnjs.cloudflare.com/ajax/libs/foundation/5.3.0/css/foundation.min.css' %>
   <%= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/foundation/5.3.0/js/foundation.min.js' %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -21,12 +21,14 @@
       <section class="top-bar-section">
         <ul class="right">
           <% if user_signed_in? %>
+            <li><%= link_to "Dog Matches", dogs_path %></li>
             <li class="has-dropdown">
               <a href="#"><%= current_user.username %></a>
               <ul class="dropdown">
                 <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
                 <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
               </ul>
+            </li>
           <% else %>
             <li><%= link_to "Sign up", new_user_registration_path, class: "small button" %></li>
             <li><%= link_to "Login", new_user_session_path %></li>
@@ -39,7 +41,6 @@
 
 <div class="row">
   <div class="small-12 columns">
-  <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
 
     <% flash.each do |name, msg| %>
       <% if msg.is_a?(String) %>
@@ -52,5 +53,8 @@
   </div>
 </div>
 
+<script>
+  $(document).foundation();
+</script>
 </body>
 </html>

@@ -12,6 +12,7 @@ Preliminary models
 * belongs_to :shelter
 * has_many :dog_matches
 * has_many :users, through: dog_matches
+* petfinder_id
 * name
 * image
 * breeds
@@ -30,6 +31,7 @@ Preliminary models
 ## Shelter
 * has_many :dogs
 * has_one :address
+* petfinder_id
 * name
 * phone
 * email

@@ -11,10 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140707192328) do
+ActiveRecord::Schema.define(version: 20140707221858) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: true do |t|
+    t.text     "street_line1"
+    t.text     "street_line2"
+    t.text     "city"
+    t.text     "state"
+    t.text     "zip"
+    t.integer  "shelter_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "addresses", ["shelter_id"], name: "index_addresses_on_shelter_id", using: :btree
 
   create_table "dogs", force: true do |t|
     t.text     "petfinder_id", null: false
@@ -24,6 +37,19 @@ ActiveRecord::Schema.define(version: 20140707192328) do
     t.text     "gender"
     t.text     "age"
     t.text     "description"
+    t.text     "url",          null: false
+    t.integer  "shelter_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "dogs", ["shelter_id"], name: "index_dogs_on_shelter_id", using: :btree
+
+  create_table "shelters", force: true do |t|
+    t.text     "petfinder_id", null: false
+    t.text     "name"
+    t.text     "phone"
+    t.text     "email"
     t.text     "url",          null: false
     t.datetime "created_at"
     t.datetime "updated_at"

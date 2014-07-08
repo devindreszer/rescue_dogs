@@ -4,6 +4,7 @@ class CreateDogs < ActiveRecord::Migration
       t.text :petfinder_id, null: false
       t.text :name, :image, :size, :gender, :age, :description
       t.text :url, null: false
+      t.references :shelter, index: true
 
       t.timestamps
     end

@@ -2,5 +2,10 @@
 <div class="age"><p><%= @dog.age %></p></div>
 <div class="size"><p><%= @dog.size %></p></div>
 <div class="gender"><p><%= @dog.gender %></p></div>
+<div class="shelter-name"><p><%= @dog.shelter.name %></p></div>
+<div class="shelter-location"><p><%= @dog.shelter.address.city %>, <%= @dog.shelter.address.state %></p></div>
+
 <div class="image"><%= image_tag @dog.image, alt: @dog.name %></div>
+
 <div class="description"><p><%= @dog.description %></p></div>
+

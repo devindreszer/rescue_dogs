@@ -19,4 +19,15 @@ feature 'User views random dog in their area' do
 
     expect(page).to have_css "img"
   end
+
+  scenario 'by clicking back from dog detail page' do
+    visit root_path
+    fill_in "Enter Zip Code", with: "02093"
+    click_button "Search"
+    click_link "Plus"
+
+    click_link "Next"
+
+    expect(page).to have_css "img"
+  end
 end

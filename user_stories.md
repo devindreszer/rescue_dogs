@@ -19,7 +19,7 @@ I want to be able to see a dog poster from a dog near the zipcode entered,
 So that I can decide to see more information about a dog or swipe to the next dog
 
 As a guest (or registered) user,
-When I swipe right (or click the right icon),
+When I swipe right (or click the right arrow icon),
 I want to see another dog poster from a dog near the zipcode entered,
 So that I can decide to see more information about a dog or swipe to the next dog
 
@@ -27,6 +27,11 @@ As a guest (or registered) user,
 When I swipe left (or click the plus icon,
 I want to see more information about the dog,
 So that I can see if I would like the dog
+
+As a guest (or registered) user,
+When I swipe right (or click the right arrow icon) from the dog detail page,
+I want to see another dog poster from a dog near the zipcode entered,
+So that I can decide to see more information about a dog or swipe to the next dog
 
 
 ## Sign up/Login/Logout
@@ -38,7 +43,7 @@ So that I can utilize all functions of the app
 As a newly registered user,
 When I sign up,
 I want to redirected back to the previous page that I was on,
-So that I perform the action that prompted me to sign up
+So that I can perform the action that prompted me to sign up
 
 As a registered user,
 When I click on login in the nav bar,

@@ -21,7 +21,7 @@
       <section class="top-bar-section">
         <ul class="right">
           <% if user_signed_in? %>
-            <li><%= link_to "Dog Matches", dogs_path %></li>
+            <li><%= link_to "Dog Matches", dog_matches_path %></li>
             <li class="has-dropdown">
               <a href="#"><%= current_user.username %></a>
               <ul class="dropdown">

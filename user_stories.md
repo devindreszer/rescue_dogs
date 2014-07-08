@@ -76,6 +76,11 @@ When I click on a dog match,
 I want to see more details about the dog,
 So that I can see if I would like the dog
 
+As a registered usr,
+When I click delete,
+I want to remove a dog match,
+So that I have control over my dog matches
+
 As a registered user,
 When I click Add to Favorites from a dog info page,
 I want it to be saved to My Favorites,

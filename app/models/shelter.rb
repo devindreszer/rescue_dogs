@@ -1,6 +1,6 @@
 class Shelter < ActiveRecord::Base
-  has_many :dogs
-  has_one :address
+  has_many :dogs, dependent: :destroy
+  has_one :address, dependent: :destroy
 
   def self.create_from_petfinder(petfinder_shelter)
     unless find_by(petfinder_id: petfinder_shelter.id).nil?

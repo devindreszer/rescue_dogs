@@ -67,6 +67,11 @@ So that nobody else can make changes to it without my permission
 
 ## Registered Users
 As a registered user,
+When I view my dog matches matches,
+I want to be able to see all of the dogs that I swiped left (clicked plus on) while signed in,
+So that I can go back to dogs that I am interested in
+
+As a registered user,
 When I click Add to Favorites from a dog info page,
 I want it to be saved to My Favorites,
 So that I can look at them later

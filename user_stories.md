@@ -67,9 +67,14 @@ So that nobody else can make changes to it without my permission
 
 ## Registered Users
 As a registered user,
-When I view my dog matches matches,
+When I view my dog matches,
 I want to be able to see all of the dogs that I swiped left (clicked plus on) while signed in,
 So that I can go back to dogs that I am interested in
+
+As a registered user,
+When I click on a dog match,
+I want to see more details about the dog,
+So that I can see if I would like the dog
 
 As a registered user,
 When I click Add to Favorites from a dog info page,

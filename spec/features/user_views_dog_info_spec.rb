@@ -41,4 +41,25 @@ feature 'User views dogs info' do
     expect(page).to have_css ".shelter-name"
     expect(page).to have_css ".shelter-location"
   end
+
+  scenario 'by clicking on a dog in their dog matches' do
+    devin = create(:user, username: "devin", email: "devin@example.com", password: "password")
+    visit root_path
+    sign_in_as(devin)
+    fill_in "Enter Zip Code", with: "02093"
+    click_button "Search"
+    click_link "Plus"
+    click_link "Dog Matches"
+
+    first(".dog-list").first(:link).click
+
+    expect(page).to have_css ".name"
+    expect(page).to have_css ".age"
+    expect(page).to have_css ".size"
+    expect(page).to have_css ".gender"
+    expect(page).to have_css ".image"
+    expect(page).to have_css ".description"
+    expect(page).to have_css ".shelter-name"
+    expect(page).to have_css ".shelter-location"
+  end
 end

@@ -1,6 +1,6 @@
 <hr>
 
-<div>
-  <div><%= image_tag dog.image, alt: dog.name, class: "dog-list" %></div>
-  <h2><%= dog.name %>
+<div class="dog-list">
+  <div><%= link_to image_tag(dog.image, alt: dog.name), dog_path(dog.id) %></div>
+  <h2><%= link_to dog.name, dog_path(dog.id) %></h2>
 </div>

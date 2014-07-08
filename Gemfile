@@ -64,3 +64,8 @@ end
 # Devise ruby gem for user authentication
 gem 'devise'
 
+# to deploy to heroku
+group :production do
+  gem 'rails_12factor'
+end
+

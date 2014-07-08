@@ -1,11 +1,11 @@
 class Dogfinder
-  COUNT = "100"
+  COUNT = "25"
 
   def random(zip)
-    if @dogs.nil?
+    if Dog.find_by(last_zip: zip).nil? || Dog.where(last_zip: zip).count < COUNT.to_i
       collect(zip).sample
     else
-      @dogs.sample
+      Dog.where(last_zip: zip).sample
     end
   end
 
@@ -34,8 +34,10 @@ class Dogfinder
       if Dog.find_by(petfinder_id: petfinder_dog.id).nil?
         dog = shelter.dogs.build
         dog.set_from_petfinder(petfinder_dog)
+        dog.last_zip = zip
       else
         dog = Dog.find_by(petfinder_id: petfinder_dog.id)
+        dog.last_zip = zip
       end
 
       shelter.save

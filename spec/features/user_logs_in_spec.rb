@@ -13,7 +13,7 @@ feature 'User logs into account' do
     fill_in 'Password', with: "password"
     click_button 'Sign in'
 
-    expect(page).to have_content "Logged in as devin"
+    expect(page).to have_content "devin"
     expect(page).to have_content "Signed in successfully"
 
   end

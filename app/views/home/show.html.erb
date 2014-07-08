@@ -1,6 +1,12 @@
-<h1>Browse rescue dogs in your area</h1>
+<h1 class="text-center">Browse rescue dogs in your area</h1>
 
-<%= form_tag(random_dog_path, method: :get) do %>
-  <%= text_field_tag :zip, params[:zip], placeholder: "Enter Zip Code" %>
-  <%= submit_tag "Search", name: nil %>
-<% end %>
+<div class="row">
+  <div class="medium-4 small-centered columns">
+
+    <%= form_tag(random_dog_path, method: :get) do %>
+      <%= text_field_tag :zip, params[:zip], placeholder: "Enter Zip Code" %>
+      <%= submit_tag "Search", name: nil, class: "small button" %>
+    <% end %>
+
+  </div>
+</div>

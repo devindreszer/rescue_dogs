@@ -38,7 +38,8 @@
 </header>
 
 <div class="row">
-  <div class="small-12 columns centered">
+  <div class="small-12 columns">
+  <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
 
     <% flash.each do |name, msg| %>
       <% if msg.is_a?(String) %>

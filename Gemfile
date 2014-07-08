@@ -61,3 +61,6 @@ group :test do
   gem 'shoulda-matchers'
 end
 
+# Devise ruby gem for user authentication
+gem 'devise'
+

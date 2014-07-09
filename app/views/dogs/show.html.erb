@@ -3,9 +3,17 @@
 <% if user_signed_in? %>
   <% dog_match = @dog.dog_matches.where(user_id: current_user.id).first %>
   <% if dog_match.is_favorite.present? && dog_match.is_favorite %>
-    <li class="inline"><%= link_to "Favorited", dog_match_path(dog_match.id, is_favorite: false), method: :patch %>
+    <li class="inline">
+      <%= link_to dog_match_path(dog_match.id, is_favorite: false), method: :patch, title: "Unfavorite" do %>
+        <i class="fi-star unfavorite"></i>
+      <% end %>
+    </li>
   <% else %>
-    <li class="inline"><%= link_to "Favorite", dog_match_path(dog_match.id, is_favorite: true), method: :patch %>
+    <li class="inline favorite">
+      <%= link_to dog_match_path(dog_match.id, is_favorite: true), method: :patch, title: "Favorite" do %>
+        <i class="fi-star favorite"></i>
+      <% end %>
+    </li>
   <% end %>
 <% end %>
 

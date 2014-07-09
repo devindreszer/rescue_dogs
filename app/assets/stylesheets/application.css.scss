@@ -16,6 +16,27 @@
 
  */
 
+@import 'foundation-icons';
 @import "sticky-footer";
 
-@include sticky-footer(2rem);
+@include sticky-footer(50px);
+
+.inline {
+  display: inline;
+}
+
+.random-dog {
+  padding: 2rem 0 0 0;
+}
+
+.favorite, .remove {
+  color: rgba(0, 0, 0, 0.25)
+}
+
+.favorite:hover, .remove:hover {
+  color: rgba(0, 0, 0, 0.5)
+}
+
+i {
+  font-size: 110%;
+}

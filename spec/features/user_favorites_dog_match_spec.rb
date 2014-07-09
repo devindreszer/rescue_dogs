@@ -15,12 +15,12 @@ feature 'Signed in user can favorite a dog' do
 
     first(".dog-list").click_link("Favorite")
 
-    expect(page).to have_content "Favorited"
+    expect(page).to have_content "Unfavorite"
   end
 
   scenario 'by clicking favorite from a dog info page' do
     click_link "Favorite"
 
-    expect(page).to have_content "Favorited"
+    expect(page).to have_content "Unfavorite"
   end
 end

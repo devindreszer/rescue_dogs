@@ -1,5 +1,17 @@
-<div class="random-dog-container">
-  <%= image_tag(@random_dog.image, alt: @random_dog.name, class: "random-dog") %>
+<div class="random-dog text-center">
+  <div class="inline">
+    <%= link_to(dog_path(id: @random_dog.id), method: :get, title: "Plus") do %>
+      <i class="fi-plus"></i>
+    <% end %>
+  </div>
+
+  <div class="random-dog-container inline">
+    <%= image_tag(@random_dog.image, alt: @random_dog.name, class: "random-dog") %>
+  </div>
+
+  <div class="inline">
+    <%= link_to(random_dog_path(zip: params[:zip]), method: :get, title: "Next") do %>
+      <i class="fi-arrow-right"></i>
+    <% end %>
+  </div>
 </div>
-<%= link_to "Plus", dog_path(id: @random_dog.id), method: :get %>
-| <%= link_to "Next", random_dog_path(zip: params[:zip]), method: :get %>

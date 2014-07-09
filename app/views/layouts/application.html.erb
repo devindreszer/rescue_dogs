@@ -22,10 +22,16 @@
       <section class="top-bar-section">
         <ul class="right">
           <% if user_signed_in? %>
-            <li><%= link_to "Favorites", dog_matches_path(favorite: true) %></li>
+            <li>
+              <%= link_to dog_matches_path(favorite: true), title: "Favorites" do %>
+                <i class="fi-star"></i>
+              <% end %>
+            </li>
             <li><%= link_to "Dog Matches", dog_matches_path %></li>
             <li class="has-dropdown">
-              <a href="#"><%= current_user.username %></a>
+              <%= link_to "#" do %>
+                <i class="fi-torso"></i> <%= current_user.username %>
+              <% end %>
               <ul class="dropdown">
                 <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
                 <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
@@ -56,7 +62,7 @@
 </div>
 
 <footer id="footer">
-  <p class="text-center">Powered by <%= link_to "petfinder.com", "https://www.petfinder.com/" %></p>
+  <p class="text-center">Powered by <%= link_to "petfinder.com", "https://www.petfinder.com/", target: "_blank" %></p>
 </footer>
 
 <%= javascript_include_tag "application" %>

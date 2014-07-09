@@ -1,11 +1,11 @@
-<div class="random-dog text-center">
+<div class="random-dog-container text-center">
   <div class="inline">
     <%= link_to(dog_path(id: @random_dog.id), method: :get, title: "Plus") do %>
       <i class="fi-plus"></i>
     <% end %>
   </div>
 
-  <div class="random-dog-container inline">
+  <div class="inline">
     <%= image_tag(@random_dog.image, alt: @random_dog.name, class: "random-dog") %>
   </div>
 

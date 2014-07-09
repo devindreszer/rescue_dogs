@@ -46,7 +46,7 @@
   display: inline;
 }
 
-.random-dog {
+.random-dog-container {
   padding: 2rem 0 0 0;
 }
 
@@ -62,6 +62,25 @@ i {
   font-size: 110%;
 }
 
-.card {
+.card, .random-dog {
   box-shadow: 0 3px 6px rgba(0,0,0,.25);
 }
+
+.card-name {
+  margin: -1px 0 0 0;
+  background: rgba(0, 0, 0, 0.75);
+  padding: 1rem;
+}
+
+.card-name h3 {
+  color: white;
+}
+
+.card-info {
+  padding: 1rem 1rem 0 1rem;
+}
+
+.card-info p {
+  color: rgba(0, 0, 0, 0.75);
+}
+

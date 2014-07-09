@@ -5,13 +5,13 @@
   <% if dog_match.is_favorite.present? && dog_match.is_favorite %>
     <li class="inline">
       <%= link_to dog_match_path(dog_match.id, is_favorite: false), method: :patch, title: "Unfavorite" do %>
-        <i class="fi-star unfavorite"></i>
+        <i class="fi-heart unfavorite"></i>
       <% end %>
     </li>
   <% else %>
     <li class="inline favorite">
       <%= link_to dog_match_path(dog_match.id, is_favorite: true), method: :patch, title: "Favorite" do %>
-        <i class="fi-star favorite"></i>
+        <i class="fi-heart favorite"></i>
       <% end %>
     </li>
   <% end %>

@@ -23,7 +23,7 @@
           <% if user_signed_in? %>
             <li>
               <%= link_to dog_matches_path(favorite: true), title: "Favorites" do %>
-                <i class="fi-star"></i>
+                <i class="fi-heart"></i>
               <% end %>
             </li>
             <li><%= link_to "Dog Matches", dog_matches_path %></li>

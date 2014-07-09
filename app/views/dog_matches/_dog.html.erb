@@ -2,21 +2,25 @@
     <%= link_to dog_path(dog.id) do %>
 
       <div class="card">
-        <div><%= image_tag(dog.image, alt: dog.name) %></div>
-        <h2><%= dog.name %></h2>
+        <div class="card-image"><%= image_tag(dog.image, alt: dog.name) %></div>
+        <div class="card-name"><h3><%= dog.name %></h3></div>
+        <div class="card-info">
+          <p><%= dog.age.downcase %> | <%= dog.size.downcase %> | <%= dog.gender.downcase %></p>
+          <p><%= link_to dog.shelter.name, dog.shelter.url, target: "_blank" %></p>
+        </div>
 
         <ul>
           <% dog_match = dog.dog_matches.where(user_id: current_user.id).first %>
           <% if dog_match.is_favorite.present? && dog_match.is_favorite %>
             <li class="inline">
               <%= link_to dog_match_path(dog_match.id, is_favorite: false), method: :patch, title: "Unfavorite" do %>
-                <i class="fi-star unfavorite"></i>
+                <i class="fi-heart unfavorite"></i>
               <% end %>
             </li>
           <% else %>
             <li class="inline favorite">
               <%= link_to dog_match_path(dog_match.id, is_favorite: true), method: :patch, title: "Favorite" do %>
-                <i class="fi-star favorite"></i>
+                <i class="fi-heart favorite"></i>
               <% end %>
             </li>
           <% end %>

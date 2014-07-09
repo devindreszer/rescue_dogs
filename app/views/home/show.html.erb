@@ -5,7 +5,7 @@
 
     <%= form_tag(random_dog_path, method: :get) do %>
       <%= text_field_tag :zip, params[:zip], placeholder: "Enter Zip Code" %>
-      <%= submit_tag "Search", name: nil, class: "small button" %>
+      <%= submit_tag "Search", name: nil, class: "small button radius" %>
     <% end %>
 
   </div>

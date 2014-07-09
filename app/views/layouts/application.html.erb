@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RescueDogs</title>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag '//cdnjs.cloudflare.com/ajax/libs/foundation/5.3.0/css/foundation.min.css' %>
-  <%= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/foundation/5.3.0/js/foundation.min.js' %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "vendor/modernizr" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -31,7 +32,7 @@
               </ul>
             </li>
           <% else %>
-            <li><%= link_to "Sign up", new_user_registration_path, class: "small button" %></li>
+            <li><%= link_to "Sign up", new_user_registration_path, class: "small button radius" %></li>
             <li><%= link_to "Login", new_user_session_path %></li>
           <% end %>
         </ul>
@@ -40,7 +41,7 @@
   </div>
 </header>
 
-<div class="row">
+<div class="row", id="root">
   <div class="small-12 columns">
 
     <% flash.each do |name, msg| %>
@@ -54,8 +55,10 @@
   </div>
 </div>
 
-<script>
-  $(document).foundation();
-</script>
+<footer id="footer">
+  <p class="text-center">Powered by <%= link_to "petfinder.com", "https://www.petfinder.com/" %></p>
+</footer>
+
+<%= javascript_include_tag "application" %>
 </body>
 </html>

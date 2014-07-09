@@ -12,12 +12,10 @@
  *
  *= require_tree .
  *= require_self
+ *= require foundation_and_overrides
+
  */
 
-.button {
-  background: #F38020;
-}
+@import "sticky-footer";
 
-.button:hover {
-  background: #D9731D;
-}
+@include sticky-footer(2rem);

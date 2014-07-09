@@ -69,3 +69,5 @@ group :production do
   gem 'rails_12factor'
 end
 
+# add foundation to file directly
+gem 'foundation-rails'

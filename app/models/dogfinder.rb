@@ -1,9 +1,19 @@
 class Dogfinder
   COUNT = "25"
 
+  attr_accessor :zip_error
+
   def random(zip)
     if Dog.find_by(last_zip: zip).nil? || Dog.where(last_zip: zip).count < COUNT.to_i
-      collect(zip).sample
+      dogs = collect(zip)
+
+      # If an error is raised in collect; dogs will be nil
+      if dogs.present?
+        dogs.sample
+      else
+        return
+      end
+
     else
       Dog.where(last_zip: zip).sample
     end
@@ -24,7 +34,14 @@ class Dogfinder
   end
 
   def collect(zip)
-    petfinder_dogs = client.find_pets("dog", zip, count: COUNT)
+    # Catch invalid zip codes; set zip_error and return nil
+    begin
+      petfinder_dogs = client.find_pets("dog", zip, count: COUNT)
+    rescue Petfinder::Error
+      self.zip_error = "Invalid zip code"
+      return
+    end
+
     @dogs = []
 
     petfinder_dogs.each do |petfinder_dog|

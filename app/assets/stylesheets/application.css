@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+.button {
+  background: #F38020;
+}
+
+.button:hover {
+  background: #D9731D;
+}

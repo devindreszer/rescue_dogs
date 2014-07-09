@@ -1,8 +1,13 @@
 class DogMatchesController < ApplicationController
 
   def index
-    @dogs = current_user.dogs if user_signed_in?
-    @dog_matches = current_user.dog_matches if user_signed_in?
+    if params[:favorite]
+      @dog_matches = current_user.dog_matches.where(is_favorite: true) if user_signed_in?
+      @dogs = @dog_matches.map(&:dog)
+    else
+      @dog_matches = current_user.dog_matches if user_signed_in?
+      @dogs = @dog_matches.map(&:dog)
+    end
   end
 
   def update

@@ -76,15 +76,25 @@ When I click on a dog match,
 I want to see more details about the dog,
 So that I can see if I would like the dog
 
-As a registered usr,
+As a registered user,
 When I click delete,
 I want to remove a dog match,
 So that I have control over my dog matches
 
 As a registered user,
-When I click Add to Favorites from a dog info page or the dog matches page,
+When I click Favorite from the dog matches page,
 I want it to be marked as a favorite,
 So that I can filter my dog matches by favorites
+
+As a registered user,
+When I click Favorited from the dog matches page,
+I want it to no longer be a favorite,
+So that I can manage my favorites
+
+As a registered user,
+When I sort by favorites,
+I want to just see my favorite dog matches,
+So that I can compare my favorites
 
 As a registered user,
 When I click share on twitter or facebook,

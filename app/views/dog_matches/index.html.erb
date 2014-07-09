@@ -1,2 +1,7 @@
-<h1>Dog Matches</h1>
+<% if params[:favorite] %>
+  <h1>Favorites</h1>
+<% else %>
+  <h1>Dog Matches</h1>
+<% end %>
+
 <%= render partial: "dog", collection: @dogs %>

@@ -1,12 +1,27 @@
-<h1 class="text-center">Browse rescue dogs in your area</h1>
-
-<div class="row">
-  <div class="medium-4 small-centered columns">
+<div id="banner">
+  <div id="browse">
+    <h1 class="text-center banner-text">Browse rescue dogs in your area</h1>
 
     <%= form_tag(random_dog_path, method: :get) do %>
-      <%= text_field_tag :zip, params[:zip], placeholder: "Enter Zip Code" %>
-      <%= submit_tag "Search", name: nil, class: "small button radius" %>
+      <div class="row">
+        <div class="medium-4 small-centered columns">
+          <div class="row collapse">
+
+            <div class="small-10 columns">
+              <%= text_field_tag :zip, params[:zip], placeholder: "Enter Zip Code" %>
+            </div>
+
+            <div class="small-2 columns">
+              <%= button_tag(type: "submit", name: "search", class: "search-button button postfix radius") do %>
+                <i class="fi-magnifying-glass"></i>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
     <% end %>
 
   </div>
 </div>
+
+

@@ -21,6 +21,27 @@
 
 @include sticky-footer(50px);
 
+#banner {
+  background-image: image-url('gracie_banner.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin: -55px 0 0 0;
+  height: 80%;
+}
+
+#browse {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.banner-text {
+  color: white;
+}
+
 .inline {
   display: inline;
 }
@@ -30,11 +51,11 @@
 }
 
 .favorite, .remove {
-  color: rgba(0, 0, 0, 0.25)
+  color: rgba(0, 0, 0, 0.25);
 }
 
 .favorite:hover, .remove:hover {
-  color: rgba(0, 0, 0, 0.5)
+  color: rgba(0, 0, 0, 0.5);
 }
 
 i {

@@ -11,8 +11,7 @@
 </head>
 <body>
 
-<header>
-  <div class="contain-to-grid">
+  <div class="">
     <nav class="top-bar" data-topbar>
       <ul class="title-area">
         <li class= "name">
@@ -45,21 +44,26 @@
       </section>
     </nav>
   </div>
-</header>
 
-<div class="row", id="root">
-  <div class="small-12 columns">
+<% if request.path == "/" %>
 
-    <% flash.each do |name, msg| %>
-      <% if msg.is_a?(String) %>
-        <%= content_tag :div, msg, :class => "flash_#{name}" %>
+  <%= yield %>
+
+<% else %>
+  <div class="row", id="root">
+    <div class="small-12 columns">
+
+      <% flash.each do |name, msg| %>
+        <% if msg.is_a?(String) %>
+          <%= content_tag :div, msg, :class => "flash_#{name}" %>
+        <% end %>
       <% end %>
-    <% end %>
 
-    <%= yield %>
+      <%= yield %>
 
+    </div>
   </div>
-</div>
+<% end %>
 
 <footer id="footer">
   <p class="text-center">Powered by <%= link_to "petfinder.com", "https://www.petfinder.com/", target: "_blank" %></p>

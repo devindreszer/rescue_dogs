@@ -4,6 +4,7 @@ class CreateDogMatches < ActiveRecord::Migration
       t.references :dog, index: true
       t.references :user, index: true
       t.boolean :is_favorite
+      t.boolean :is_top
 
       t.timestamps
     end

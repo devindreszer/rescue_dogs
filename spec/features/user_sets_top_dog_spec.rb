@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Signed in user can favorite a dog' do
+feature 'Signed in user can set top dog' do
   background do
     devin = create(:user, username: "devin", email: "devin@example.com", password: "password")
     visit root_path
@@ -8,19 +8,14 @@ feature 'Signed in user can favorite a dog' do
     fill_in "Enter Zip Code", with: "02093"
     click_button "Search"
     click_link "Match"
-  end
-
-  scenario 'by clicking favorite on a dog match' do
     click_link "Matches"
-
     first(".tagging").click_link("Favorite")
-
-    expect(page).to have_css ".unfavorite"
+    click_link "Favorites"
   end
 
-  scenario 'by clicking favorite from a dog info page' do
-    click_link "Favorite"
+  scenario 'by clicking add-crown on a dog match card' do
+    first(".tagging").click_link("add-crown")
 
-    expect(page).to have_css ".unfavorite"
+    expect(page).to have_css ".remove-crown"
   end
 end

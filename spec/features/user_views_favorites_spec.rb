@@ -9,7 +9,7 @@ feature 'Signed in user views favorites' do
     click_button "Search"
     click_link "Match"
     click_link "Matches"
-    first(".dog-list").click_link("Favorite")
+    first(".tagging").click_link("Favorite")
 
     click_link "Favorites"
 

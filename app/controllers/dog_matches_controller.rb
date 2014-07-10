@@ -13,7 +13,25 @@ class DogMatchesController < ApplicationController
 
   def update
     @dog_match = DogMatch.find(params[:id])
-    @dog_match.is_favorite = params[:is_favorite]
+
+    # Check to see what param the user passed
+    if params[:is_favorite].nil?
+
+      # If a dog is crowned, remove all other crowns from other dogs
+      if params[:is_top] == "true"
+        current_user.dog_matches.each do |dog_match|
+          dog_match.is_top = false
+          dog_match.save
+        end
+      end
+
+      # Set the is_top value from the param passed by user
+      @dog_match.is_top = params[:is_top]
+
+    else
+      @dog_match.is_favorite = params[:is_favorite]
+    end
+
     @dog_match.save
     redirect_to dog_matches_path
   end

@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20140708171847) do
     t.integer  "dog_id"
     t.integer  "user_id"
     t.boolean  "is_favorite"
+    t.boolean  "is_top"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

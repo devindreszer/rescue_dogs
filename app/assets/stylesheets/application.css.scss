@@ -19,8 +19,17 @@
 @import 'foundation-icons';
 @import "sticky-footer";
 
+// Footer
 @include sticky-footer(50px);
 
+footer {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+// Homepage
 #banner {
   background-image: image-url('gracie_banner.jpg');
   background-repeat: no-repeat;
@@ -41,6 +50,24 @@
 .banner-text {
   color: white;
 }
+
+.homepage-section {
+  padding: 5rem 0;
+}
+
+.feature-icon {
+  font-size: 5rem;
+}
+
+#stats-section {
+  background: black;
+  h2 {
+    color: white;
+    line-height: 4rem;
+  }
+}
+
+//
 
 .inline {
   display: inline;

@@ -22,11 +22,15 @@
         <ul class="right">
           <% if user_signed_in? %>
             <li>
-              <%= link_to dog_matches_path(favorite: true), title: "Favorites" do %>
-                <i class="fi-heart"></i>
+              <%= link_to dog_matches_path, title: "Matches" do %>
+                <i class="fi-check"></i> Matches
               <% end %>
             </li>
-            <li><%= link_to "Dog Matches", dog_matches_path %></li>
+            <li>
+              <%= link_to dog_matches_path(favorite: true), title: "Favorites" do %>
+                <i class="fi-heart"></i> Favorites
+              <% end %>
+            </li>
             <li class="has-dropdown">
               <%= link_to "#" do %>
                 <i class="fi-torso"></i> <%= current_user.username %>
@@ -65,8 +69,9 @@
   </div>
 <% end %>
 
-<footer id="footer">
-  <p class="text-center">Powered by <%= link_to "petfinder.com", "https://www.petfinder.com/", target: "_blank" %></p>
+<footer id="footer" class="text-center">
+  <h3><%= link_to "Hire the Developer!", "https://www.linkedin.com/pub/devin-dreszer/2b/a41/338", target: "_blank" %></h3>
+  <p>Powered by <%= link_to "petfinder.com", "https://www.petfinder.com/", target: "_blank" %></p>
 </footer>
 
 <%= javascript_include_tag "application" %>

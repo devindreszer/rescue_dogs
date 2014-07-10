@@ -1,7 +1,7 @@
 <div class="random-dog-container text-center">
   <div class="inline">
-    <%= link_to(dog_path(id: @random_dog.id), method: :get, title: "Plus") do %>
-      <i class="fi-plus"></i>
+    <%= link_to(dog_path(id: @random_dog.id), method: :get, title: "Match") do %>
+      <i class="fi-check"></i>
     <% end %>
   </div>
 
@@ -10,7 +10,7 @@
   </div>
 
   <div class="inline">
-    <%= link_to(random_dog_path(zip: params[:zip]), method: :get, title: "Next") do %>
+    <%= link_to(random_dog_path(zip: params[:zip]), method: :get, title: "Flip") do %>
       <i class="fi-arrow-right"></i>
     <% end %>
   </div>

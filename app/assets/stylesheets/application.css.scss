@@ -17,16 +17,13 @@
  */
 
 @import 'foundation-icons';
-@import "sticky-footer";
+// @import "sticky-footer";
 
-// Footer
-@include sticky-footer(50px);
+// // Footer
+// @include sticky-footer(50px);
 
 footer {
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+  margin: 3em;
 }
 
 // Homepage

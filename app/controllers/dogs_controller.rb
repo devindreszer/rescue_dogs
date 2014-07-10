@@ -1,4 +1,5 @@
 class DogsController < ApplicationController
+  before_action :authenticate_user!
 
   def show
     @dog = Dog.find(params[:id])

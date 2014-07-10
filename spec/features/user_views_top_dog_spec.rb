@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-feature 'Signed in user can set top dog' do
-  background do
+feature 'Signed in user can view top dog' do
+  scenario 'by Top Dog in navbar' do
     devin = create(:user, username: "devin", email: "devin@example.com", password: "password")
     visit root_path
     sign_in_as(devin)
@@ -11,11 +11,10 @@ feature 'Signed in user can set top dog' do
     click_link "Matches"
     first(".tagging").click_link("Favorite")
     click_link "Favorites"
-  end
-
-  scenario 'by clicking add-crown on a dog match card' do
     first(".tagging").click_link("add-crown")
 
-    expect(page).to have_css ".remove-crown"
+    click_link "Top Dog"
+
+    expect(page).to have_content "Top Dog"
   end
 end

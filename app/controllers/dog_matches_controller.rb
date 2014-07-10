@@ -3,10 +3,13 @@ class DogMatchesController < ApplicationController
 
   def index
     if params[:favorite]
-      @dog_matches = current_user.dog_matches.where(is_favorite: true)
+      @dog_matches = current_user.dog_matches.where(is_favorite: true).order(:created_at).reverse
+      @dogs = @dog_matches.map(&:dog)
+    elsif params[:top_dog]
+      @dog_matches = current_user.dog_matches.where(is_top: true).order(:created_at).reverse
       @dogs = @dog_matches.map(&:dog)
     else
-      @dog_matches = current_user.dog_matches
+      @dog_matches = current_user.dog_matches.order(:created_at).reverse
       @dogs = @dog_matches.map(&:dog)
     end
   end
@@ -29,11 +32,16 @@ class DogMatchesController < ApplicationController
       @dog_match.is_top = params[:is_top]
 
     else
+
+      if params[:is_favorite] == "false"
+        @dog_match.is_top = "false"
+      end
+
       @dog_match.is_favorite = params[:is_favorite]
     end
 
     @dog_match.save
-    redirect_to dog_matches_path
+    redirect_to :back
   end
 
   def destroy

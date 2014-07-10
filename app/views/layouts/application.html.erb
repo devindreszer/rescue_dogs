@@ -32,6 +32,12 @@
                 <i class="fi-heart"></i> Favorites
               <% end %>
             </li>
+            <li>
+              <%= link_to dog_matches_path(top_dog: true), title: "Top-Dog" do %>
+                <i class="fi-crown"></i> Top Dog
+              <% end %>
+            </li>
+
             <li class="has-dropdown">
               <%= link_to "#" do %>
                 <i class="fi-torso"></i> <%= current_user.username %>

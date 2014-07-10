@@ -1,7 +1,9 @@
 <% if params[:favorite] %>
-  <h1>Favorites</h1>
+  <h1><%= @dog_matches.count %> Favorites</h1>
+<% elsif params[:top_dog] %>
+  <h1><%= @dog_matches.count %> Top Dog</h1>
 <% else %>
-  <h1>Dog Matches</h1>
+  <h1><%= @dog_matches.count %> Matches</h1>
 <% end %>
 
 <hr>

@@ -8,39 +8,39 @@
           <p><%= dog.age.downcase %> | <%= dog.size.downcase %> | <%= dog.gender.downcase %></p>
           <p><%= link_to dog.shelter.name, dog.shelter.url, target: "_blank" %></p>
 
-        <ul class="tagging">
+        <div class="tagging">
           <!-- Favorites -->
           <% dog_match = dog.dog_matches.where(user_id: current_user.id).first %>
           <% if dog_match.is_favorite.present? %>
-            <li class="inline">
+            <p class="text-right inline">
               <%= link_to dog_match_path(dog_match.id, is_favorite: false), method: :patch, title: "Unfavorite" do %>
                 <i class="fi-heart unfavorite"></i>
               <% end %>
-            </li>
+            </p>
 
             <!-- Top Dog -->
             <% if dog_match.is_top.present? %>
-              <li class="inline">
+              <p class="text-right inline">
                 <%= link_to dog_match_path(dog_match.id, is_top: false), method: :patch, title: "remove-crown" do %>
                   <i class="fi-crown remove-crown"></i>
                 <% end %>
-              </li>
+              </p>
             <% else %>
-              <li class="inline">
+              <p class="text-right inline">
                 <%= link_to dog_match_path(dog_match.id, is_top: true), method: :patch, title: "add-crown" do %>
                   <i class="fi-crown add-crown"></i>
                 <% end %>
-              </li>
+              </p>
             <% end %>
 
           <% else %>
-            <li class="inline favorite">
+            <p class="text-right inline favorite">
               <%= link_to dog_match_path(dog_match.id, is_favorite: true), method: :patch, title: "Favorite" do %>
                 <i class="fi-heart favorite"></i>
               <% end %>
-            </li>
+            </p>
           <% end %>
-        </ul>
+        </div>
 
       </div>
 

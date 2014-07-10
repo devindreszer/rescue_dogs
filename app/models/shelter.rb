@@ -8,9 +8,9 @@ class Shelter < ActiveRecord::Base
     else
       @shelter = new
       @shelter.petfinder_id = petfinder_shelter.id
-      @shelter.name = petfinder_shelter.name
-      @shelter.phone = petfinder_shelter.phone
-      @shelter.email = petfinder_shelter.email
+      @shelter.name ||= petfinder_shelter.name
+      @shelter.phone ||= petfinder_shelter.phone
+      @shelter.email ||= petfinder_shelter.email
       @shelter.url = "https://www.petfinder.com/shelters/#{petfinder_shelter.id}.html"
       @shelter.save
       @shelter.set_address(petfinder_shelter)

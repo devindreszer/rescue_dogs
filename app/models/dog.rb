@@ -17,7 +17,7 @@ class Dog < ActiveRecord::Base
     if petfinder_dog.photos.present?
       self.image = petfinder_dog.photos.first.large
     else
-      self.image = "/assets/no_image_available.png"
+      self.image = "/assets/images/no_image_available.png"
     end
 
     self

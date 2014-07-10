@@ -64,10 +64,12 @@
   <div class="body-content row">
     <div class="small-12 columns">
 
-      <% flash.each do |name, msg| %>
-        <% if msg.is_a?(String) %>
-          <%= content_tag :div, msg, :class => "flash_#{name}" %>
-        <% end %>
+      <% if flash[:notice].present? %>
+        <p class="notice text-center banner-text"><%= flash[:notice] %></p>
+      <% end %>
+
+      <% if flash[:alert].present? %>
+        <p class="alert text-center banner-text"><%= flash[:alert] %></p>
       <% end %>
 
       <%= yield %>

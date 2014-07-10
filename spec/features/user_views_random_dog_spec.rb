@@ -15,7 +15,7 @@ feature 'User views random dog in their area' do
     fill_in "Enter Zip Code", with: "02093"
     click_button "Search"
 
-    click_link "Next"
+    click_link "Flip"
 
     expect(page).to have_css "img"
   end
@@ -24,9 +24,9 @@ feature 'User views random dog in their area' do
     visit root_path
     fill_in "Enter Zip Code", with: "02093"
     click_button "Search"
-    click_link "Plus"
+    click_link "Match"
 
-    click_link "Next"
+    click_link "Back"
 
     expect(page).to have_css "img"
   end

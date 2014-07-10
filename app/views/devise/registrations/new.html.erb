@@ -9,7 +9,7 @@
       <div><%= f.label :username %><br />
       <%= f.text_field :username, autofocus: true %></div>
 
-      <div><%= f.label "Email*" %><br />
+      <div><%= f.label :email %><br />
       <%= f.email_field :email %></div>
 
       <div><%= f.label :password %><br />
@@ -24,7 +24,7 @@
     <%= render "devise/shared/links" %>
 
     <hr>
-    <p>*Your email will only be used to reset your password. If you are confident that you will not forget your password, feel free to use a fake email (@example.com).</p>
+    <p>Your email will only be used to reset your password. If you are confident that you will not forget your password, feel free to use a fake email (@example.com).</p>
 
   </div>
 </div>

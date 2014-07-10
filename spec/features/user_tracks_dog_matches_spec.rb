@@ -6,8 +6,8 @@ feature 'Signed in user tracks dog matches' do
     visit root_path
     sign_in_as(devin)
 
-    click_link "Dog Matches"
+    click_link "Matches"
 
-    expect(page).to have_content "Dog Matches"
+    expect(page).to have_content "Matches"
   end
 end

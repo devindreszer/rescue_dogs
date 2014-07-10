@@ -7,20 +7,20 @@ feature 'Signed in user can favorite a dog' do
     sign_in_as(devin)
     fill_in "Enter Zip Code", with: "02093"
     click_button "Search"
-    click_link "Plus"
+    click_link "Match"
   end
 
   scenario 'by clicking favorite on a dog match' do
-    click_link "Dog Matches"
+    click_link "Matches"
 
     first(".dog-list").click_link("Favorite")
 
-    expect(page).to have_content "Unfavorite"
+    expect(page).to have_css ".unfavorite"
   end
 
   scenario 'by clicking favorite from a dog info page' do
     click_link "Favorite"
 
-    expect(page).to have_content "Unfavorite"
+    expect(page).to have_css ".unfavorite"
   end
 end

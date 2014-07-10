@@ -6,7 +6,7 @@ feature 'User views dogs info' do
     fill_in "Enter Zip Code", with: "02093"
     click_button "Search"
 
-    click_link "Plus"
+    click_link "Match"
 
     # Testing without API
     # petfinder_shelter_id = "TN221"
@@ -48,8 +48,8 @@ feature 'User views dogs info' do
     sign_in_as(devin)
     fill_in "Enter Zip Code", with: "02093"
     click_button "Search"
-    click_link "Plus"
-    click_link "Dog Matches"
+    click_link "Match"
+    click_link "Matches"
 
     first(".dog-list").first(:link).click
 

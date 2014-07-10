@@ -1,0 +1,44 @@
+<div class="card">
+  <div class="card-image"><%= image_tag(dog.image, alt: dog.name) %></div>
+  <div class="card-name"><h3><%= dog.name %></h3></div>
+  <div class="card-info">
+    <p><%= dog.age.downcase %> | <%= dog.size.downcase %> | <%= dog.gender.downcase %></p>
+    <p><%= link_to dog.shelter.name, dog.shelter.url, target: "_blank" %>
+    <br><%= dog.shelter.address.city %>, <%= dog.shelter.address.state %></p>
+
+    <div class="tagging">
+      <!-- Favorites -->
+      <% dog_match = dog.dog_matches.where(user_id: current_user.id).first %>
+      <% if dog_match.is_favorite.present? %>
+        <p class="text-right inline">
+          <%= link_to dog_match_path(dog_match.id, is_favorite: false), method: :patch, title: "Unfavorite" do %>
+            <i class="fi-heart unfavorite"></i>
+          <% end %>
+        </p>
+
+        <!-- Top Dog -->
+        <% if dog_match.is_top.present? %>
+          <p class="text-right inline">
+            <%= link_to dog_match_path(dog_match.id, is_top: false), method: :patch, title: "remove-crown" do %>
+              <i class="fi-crown remove-crown"></i>
+            <% end %>
+          </p>
+        <% else %>
+          <p class="text-right inline">
+            <%= link_to dog_match_path(dog_match.id, is_top: true), method: :patch, title: "add-crown" do %>
+              <i class="fi-crown add-crown"></i>
+            <% end %>
+          </p>
+        <% end %>
+
+      <% else %>
+        <p class="text-right inline favorite">
+          <%= link_to dog_match_path(dog_match.id, is_favorite: true), method: :patch, title: "Favorite" do %>
+            <i class="fi-heart favorite"></i>
+          <% end %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+</div>
+

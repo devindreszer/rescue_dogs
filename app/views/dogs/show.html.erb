@@ -1,30 +1,11 @@
-<h1 class="name"><%= @dog.name %></h1>
+<div class="info-page row">
+  <div class="small-12 medium-4 columns">
+    <%= render "shared/card", dog: @dog %>
+  </div>
+  <div class="description small-12 medium-8 columns">
+    <h3>About <%= @dog.name %></h3>
+    <p><%= @dog.description %></p>
+    <p><%= link_to "Other Dogs in the Area", random_dog_path(zip: session[:zip]), method: :get %></p>
+  </div>
+</div>
 
-<% if user_signed_in? %>
-  <% dog_match = @dog.dog_matches.where(user_id: current_user.id).first %>
-  <% if dog_match.is_favorite.present? && dog_match.is_favorite %>
-    <li class="inline">
-      <%= link_to dog_match_path(dog_match.id, is_favorite: false), method: :patch, title: "Unfavorite" do %>
-        <i class="fi-heart unfavorite"></i>
-      <% end %>
-    </li>
-  <% else %>
-    <li class="inline favorite">
-      <%= link_to dog_match_path(dog_match.id, is_favorite: true), method: :patch, title: "Favorite" do %>
-        <i class="fi-heart favorite"></i>
-      <% end %>
-    </li>
-  <% end %>
-<% end %>
-
-<div class="age"><p><%= @dog.age %></p></div>
-<div class="size"><p><%= @dog.size %></p></div>
-<div class="gender"><p><%= @dog.gender %></p></div>
-<div class="shelter-name"><p><%= @dog.shelter.name %></p></div>
-<div class="shelter-location"><p><%= @dog.shelter.address.city %>, <%= @dog.shelter.address.state %></p></div>
-
-<div class="image"><%= image_tag @dog.image, alt: @dog.name %></div>
-
-<div class="description"><p><%= @dog.description %></p></div>
-
-<%= link_to "Back", random_dog_path(zip: session[:zip]), method: :get %>

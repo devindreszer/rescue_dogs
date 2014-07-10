@@ -104,7 +104,6 @@ i {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  margin: 2rem 0 0 0;
   height: 75vh;
 
   div {
@@ -125,4 +124,8 @@ i {
   div:hover {
     background: rgba(255, 255, 255, 0.10);
   }
+}
+
+.body-content {
+  padding: 2rem 0 0 0;
 }

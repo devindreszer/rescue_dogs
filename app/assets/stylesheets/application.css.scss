@@ -17,10 +17,6 @@
  */
 
 @import 'foundation-icons';
-// @import "sticky-footer";
-
-// // Footer
-// @include sticky-footer(50px);
 
 footer {
   margin: 3em;
@@ -57,7 +53,7 @@ footer {
 }
 
 #stats-section {
-  background: black;
+  background: #333333;
   h2 {
     color: white;
     line-height: 4rem;

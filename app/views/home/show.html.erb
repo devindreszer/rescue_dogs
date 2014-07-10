@@ -1,6 +1,6 @@
 <div id="banner">
   <div id="browse">
-    <h1 class="text-center banner-text">Browse rescue dogs in your area</h1>
+    <h1 class="text-center banner-text">Find a rescue dog</h1>
 
     <%= form_tag(random_dog_path, method: :get) do %>
       <div class="row">
@@ -77,9 +77,12 @@
 <div id="stats-section">
   <div class="row homepage-section">
     <div class="small-12 columns text-center">
-      <h2><%= @user_count %> Users</h2>
-      <h2><%= @dog_matches %> Matches</h2>
-      <h2><%= @dog_favorites %> Favorites</h2>
+      <ul class="medium-block-grid-4 small-block-grid-1">
+        <li><h2><%= @user_count %> <i class="fi-torso"></i></h2></li>
+        <li><h2><%= @dog_matches %> <i class="fi-check"></i></h2></li>
+        <li><h2><%= @dog_favorites %> <i class="fi-heart"></i></h2></li>
+        <li><h2><%= @dog_favorites %> <i class="fi-crown"></i></h2></li>
+      </ul>
     </div>
   </div>
 </div>

@@ -104,8 +104,8 @@ i {
 .random-dog-container {
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
-  min-height: 300px;
+  background-size: contain;
+  min-height: 500px;
   height: 75%;
   height: 75vh;
 
@@ -118,14 +118,17 @@ i {
       display: inline-block;
       vertical-align: middle;
       line-height: 75vh;
-      color: rgba(255, 255, 255, 0.75);
+      opacity: 0.5;
       padding: 0 2rem;
       font-size: 5rem;
+    }
+    p:hover {
+      opacity: 1.0;
     }
   }
 
   div:hover {
-    background: rgba(255, 255, 255, 0.10);
+    background: rgba(255, 255, 255, 0.05);
   }
 }
 

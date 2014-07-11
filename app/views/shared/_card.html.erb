@@ -2,7 +2,7 @@
   <div class="card-image"><%= image_tag(dog.image, alt: dog.name) %></div>
   <div class="card-name"><h3><%= dog.name %></h3></div>
   <div class="card-info">
-    <p><%= dog.age.downcase %> | <%= dog.size.downcase %> | <%= dog.gender.downcase %></p>
+    <p><%= dog.age %> | <%= dog.size %> | <%= dog.gender %></p>
     <p><%= link_to dog.shelter.name, dog.shelter.url, target: "_blank" %>
     <br><%= dog.shelter.address.city %>, <%= dog.shelter.address.state %></p>
 

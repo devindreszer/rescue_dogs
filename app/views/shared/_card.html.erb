@@ -8,36 +8,30 @@
 
     <div class="tagging">
       <!-- Favorites -->
+      <p class="text-right">
       <% dog_match = dog.dog_matches.where(user_id: current_user.id).first %>
       <% if dog_match.is_favorite.present? %>
-        <p class="text-right inline">
-          <%= link_to dog_match_path(dog_match.id, is_favorite: false), method: :patch, title: "Unfavorite" do %>
-            <i class="fi-heart unfavorite"></i>
-          <% end %>
-        </p>
+        <%= link_to dog_match_path(dog_match.id, is_favorite: false), method: :patch, title: "Unfavorite" do %>
+          <i class="fi-heart unfavorite"></i>
+        <% end %>
 
         <!-- Top Dog -->
         <% if dog_match.is_top.present? %>
-          <p class="text-right inline">
-            <%= link_to dog_match_path(dog_match.id, is_top: false), method: :patch, title: "remove-crown" do %>
-              <i class="fi-crown remove-crown"></i>
-            <% end %>
-          </p>
+          <%= link_to dog_match_path(dog_match.id, is_top: false), method: :patch, title: "remove-crown" do %>
+            <i class="fi-crown remove-crown"></i>
+          <% end %>
         <% else %>
-          <p class="text-right inline">
-            <%= link_to dog_match_path(dog_match.id, is_top: true), method: :patch, title: "add-crown" do %>
-              <i class="fi-crown add-crown"></i>
-            <% end %>
-          </p>
+          <%= link_to dog_match_path(dog_match.id, is_top: true), method: :patch, title: "add-crown" do %>
+            <i class="fi-crown add-crown"></i>
+          <% end %>
         <% end %>
 
       <% else %>
-        <p class="text-right inline favorite">
-          <%= link_to dog_match_path(dog_match.id, is_favorite: true), method: :patch, title: "Favorite" do %>
-            <i class="fi-heart favorite"></i>
-          <% end %>
-        </p>
+        <%= link_to dog_match_path(dog_match.id, is_favorite: true), method: :patch, title: "Favorite" do %>
+          <i class="fi-heart favorite"></i>
+        <% end %>
       <% end %>
+      </p>
     </div>
   </div>
 </div>

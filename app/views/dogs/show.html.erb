@@ -5,7 +5,8 @@
   <div class="description small-12 medium-8 columns">
     <h3>About <%= @dog.name %></h3>
     <p><%= @dog.description %></p>
-    <p><%= link_to "Other Dogs in the Area", random_dog_path(zip: session[:zip]), method: :get %></p>
+    <p><%= link_to "View on Petfinder", @dog.url, target: "_blank" %></p>
+    <p><%= link_to "Other Dogs in the Area", random_dog_path(zip: @dog.last_zip), method: :get %></p>
   </div>
 </div>
 

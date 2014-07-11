@@ -11,6 +11,7 @@
 
 // Allows the use of rem-calc() or lower-bound() in your settings
 @import "foundation/functions";
+@import url("http://fonts.googleapis.com/css?family=Open+Sans");
 
 // $experimental: true;
 
@@ -48,6 +49,7 @@
 // $body-bg: #fff;
 // $body-font-color: #222;
 // $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$body-font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $body-font-weight: $font-weight-normal;
 // $body-font-style: normal;
 
@@ -1195,7 +1197,7 @@ $topbar-bg-color: rgba(0,0,0,0.35);
 
 // Controlling the styles for the title in the top bar
 // $topbar-title-weight: $font-weight-normal;
-// $topbar-title-font-size: rem-calc(17);
+$topbar-title-font-size: rem-calc(22);
 
 // Style the top bar dropdown elements
 $topbar-dropdown-bg: rgba(0,0,0,0.4);

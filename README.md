@@ -1,5 +1,6 @@
 # RescueDogs
 Tinder for Rescue Dogs
+
 Check out the live app on [Heroku](http://rescue-dogs.herokuapp.com/)
 
 ## Features

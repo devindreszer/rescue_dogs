@@ -105,13 +105,13 @@ i {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  min-height: 500px;
+  min-height: 400px;
   height: 75%;
   height: 75vh;
 
-  div {
+  .action-buttons {
     position: relative;
-    width:50%;
+    width: 50%;
     height: 100%;
     float: left;
     p {
@@ -127,8 +127,21 @@ i {
     }
   }
 
-  div:hover {
+  .action-buttons:hover {
     background: rgba(255, 255, 255, 0.05);
+  }
+
+  .message {
+    position: absolute;
+    left: 0.5rem;
+    right: 0.5rem;
+    bottom: 0.5rem;
+    background: white;
+    box-shadow: 0 3px 6px rgba(0,0,0,.25);
+    p {
+      padding: 1rem 1rem 0 1rem;
+      color: black;
+    }
   }
 }
 

@@ -6,14 +6,18 @@
       .random-dog-container { background-image: url(<%= @random_dog.image %>); }
     </style>
 
+    <div class="message text-center">
+      <p><%= @message %></p>
+    </div>
+
       <%= link_to(dog_path(id: @random_dog.id), method: :get, title: "Match") do %>
-        <div class="text-left">
+        <div class="action-buttons text-left">
           <p><i class="fi-check"></i></p>
         </div>
       <% end %>
 
       <%= link_to(random_dog_path(zip: params[:zip]), method: :get, title: "Flip") do %>
-        <div class="text-right">
+        <div class="action-buttons text-right">
           <p><i class="fi-arrow-right"></i></p>
         </div>
       <% end %>
@@ -22,6 +26,9 @@
         <%= image_tag(@random_dog.image, alt: @random_dog.name, class: "random-dog") %>
       </div>
  -->
+
+
     </div>
   </div>
 </div>
+

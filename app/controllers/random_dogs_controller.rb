@@ -12,6 +12,8 @@ class RandomDogsController < ApplicationController
       session[:dog_id] = @random_dog.id
       session[:zip] = params[:zip]
     end
+
+    @message = Message.new.get
   end
 
 end

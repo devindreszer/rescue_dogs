@@ -5,6 +5,8 @@ class Dog < ActiveRecord::Base
   has_many :dog_matches, dependent: :destroy
   has_many :users, through: :dog_matches
 
+  attr_accessor :zip_error
+
   def set_from_petfinder(petfinder_dog)
     self.petfinder_id = petfinder_dog.id
     self.name ||= petfinder_dog.name
@@ -21,6 +23,55 @@ class Dog < ActiveRecord::Base
     end
 
     self
+  end
+
+  def random(zip, request_path)
+    # Get all the random dogs from the database with the zip passed
+    random_dogs = self.class.where(last_zip: zip)
+
+    # check to see if there are enough dogs in the database with the zip passed
+    # if not make an api request to collect more dogs in the database
+    if random_dogs.nil? || random_dogs.count < Dogfinder::COUNT.to_i
+      api_collect(random_dogs, zip)
+      return self.zip_error if self.zip_error.present?
+    end
+
+    # Collect all of the unviewed random dogs
+    unviewed_random_dogs = random_dogs.where(is_viewed: false)
+
+    # if this is a new search or all of the dogs have been viewed
+    # set all random dogs to unviewed
+    if request_path == "/" || !unviewed_random_dogs.present?
+      unview(random_dogs)
+      unviewed_random_dogs = random_dogs.where(is_viewed: false)
+    end
+
+    # Sample an unviewed random dog from the collection
+    @random_dog = unviewed_random_dogs.sample
+
+    # Set the dog's viewed status to true
+    @random_dog.is_viewed = true
+    @random_dog.save
+    @random_dog
+  end
+
+  private
+
+  def api_collect(random_dogs, zip)
+    dogfinder = Dogfinder.new
+    random_dogs = dogfinder.collect(zip)
+
+    # check for zip code errors after collect method is called
+    self.zip_error = dogfinder.zip_error if dogfinder.zip_error.present?
+
+    random_dogs
+  end
+
+  def unview(random_dogs)
+    random_dogs.each do |random_dog|
+      random_dog.is_viewed = false
+      random_dog.save
+    end
   end
 
 end

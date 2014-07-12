@@ -46,13 +46,20 @@ class Dog < ActiveRecord::Base
       unviewed_random_dogs = random_dogs.where(is_viewed: false)
     end
 
-    # Sample an unviewed random dog from the collection
-    @random_dog = unviewed_random_dogs.sample
+    # least views
+    least_views = unviewed_random_dogs.map(&:view_count).min
+
+    # Sample an unviewed random dog from the collection with least views
+    random_dog = unviewed_random_dogs.where(view_count: least_views).sample
 
     # Set the dog's viewed status to true
-    @random_dog.is_viewed = true
-    @random_dog.save
-    @random_dog
+    random_dog.is_viewed = true
+
+    # Add a view to the view count
+    counter(random_dog)
+
+    random_dog.save
+    random_dog
   end
 
   private
@@ -71,6 +78,14 @@ class Dog < ActiveRecord::Base
     random_dogs.each do |random_dog|
       random_dog.is_viewed = false
       random_dog.save
+    end
+  end
+
+  def counter(random_dog)
+    if random_dog.view_count.nil?
+      random_dog.view_count = 1
+    else
+      random_dog.view_count += 1
     end
   end
 

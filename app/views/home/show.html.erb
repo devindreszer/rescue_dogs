@@ -1,6 +1,6 @@
 <div id="banner">
   <div id="browse">
-    <h1 class="text-center banner-text">Find a dog to rescue</h1>
+    <h1 class="text-center banner-text">Get a fortune from an adoptable dog</h1>
 
     <%= form_tag(random_dog_path, method: :get) do %>
       <div class="row">
@@ -38,19 +38,19 @@
       <li>
         <div><i class="fi-magnifying-glass feature-icon"></i></div>
         <h3>Search</h3>
-        <p>Search for rescue dogs by zip code. You will see a picture of a random dog at a rescue in that area.</p>
+        <p>Search for rescue dogs by zip code. Receive a fortune from an adoptable dog in that area.</p>
       </li>
 
       <li>
         <div><i class="fi-arrow-right feature-icon"></i></div>
         <h3>Flip</h3>
-        <p>Flip through dogs until you find a dog you like. Each dog is chosen at random. If you see a duplicate, just keep flipping!</p>
+        <p>Flip through dog fortunes until you find a dog you like.</p>
       </li>
 
       <li>
         <div><i class="fi-check feature-icon"></i></div>
         <h3>Match</h3>
-        <p>When you find a dog you like hit the check to mark it as a match and learn more about the dog.</p>
+        <p>When you find a dog you like hit the check to save it as a match and learn more about the dog.</p>
       </li>
 
       <li>
@@ -77,7 +77,7 @@
 <div id="stats-section">
   <div class="row homepage-section">
     <div class="small-12 columns text-center">
-      <h2><%= @view_count %> Total Flips</h2>
+      <h2><%= @total_views %> Total Flips</h2>
       <ul class="medium-block-grid-4 small-block-grid-1">
         <li><h2><%= @user_count %> <i class="fi-torso"></i></h2></li>
         <li><h2><%= @dog_matches %> <i class="fi-check"></i></h2></li>

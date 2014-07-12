@@ -46,11 +46,8 @@ class Dog < ActiveRecord::Base
       unviewed_random_dogs = random_dogs.where(is_viewed: false)
     end
 
-    # least views
-    least_views = unviewed_random_dogs.map(&:view_count).min
-
     # Sample an unviewed random dog from the collection with least views
-    random_dog = unviewed_random_dogs.where(view_count: least_views).sample
+    random_dog = unviewed_random_dogs.where(view_count: least_views(unviewed_random_dogs)).sample
 
     # Set the dog's viewed status to true
     random_dog.is_viewed = true
@@ -78,6 +75,15 @@ class Dog < ActiveRecord::Base
     random_dogs.each do |random_dog|
       random_dog.is_viewed = false
       random_dog.save
+    end
+  end
+
+  def least_views(random_dogs)
+    view_counts = random_dogs.map(&:view_count).compact
+    if view_counts.present?
+      least_views = view_counts.min
+    else
+      least_views = nil
     end
   end
 

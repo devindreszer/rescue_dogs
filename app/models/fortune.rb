@@ -1,4 +1,4 @@
-class Message
+class Fortune
   URL = "http://www.fortunecookiemessage.com/"
 
   def get

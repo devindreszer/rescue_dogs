@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140712160540) do
+ActiveRecord::Schema.define(version: 20140712213322) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20140712160540) do
     t.boolean  "is_top"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "fortune"
   end
 
   add_index "dog_matches", ["dog_id"], name: "index_dog_matches_on_dog_id", using: :btree

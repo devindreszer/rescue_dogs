@@ -1,14 +1,15 @@
-# RescueDogs
+# dog fortunes
 Tinder for Rescue Dogs
 
 Check out the live app on [Heroku](http://rescue-dogs.herokuapp.com/)
 
 ## Features
-* Guest users can swipe right (click arrow) through rescue dogs "posters" in their area
-* Guest users can swipe left (click plus) to get more information about a dog
-* Registered users can view their dog matches (dogs they have swiped left on)
-* Registered users can add a dog to their favorites and view their favorites
-* Registered users can share a dog "poster" to twitter or facebook
+* Guest users can search for rescue dogs by zip code
+* Guest users can flip through rescue dogs and their fortune messages
+* Registered users can add a dog as a match and get more information about the dog
+* Registered users can track their dog matches
+* Registered users can add a dog match to their favorites and view their favorites
+* Registered users can have a single top dog
 
 ## Description
 This project was created to meet requirements for Project 1 in General Assembly's Web Development Immersive Program (June 2014).

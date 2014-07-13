@@ -7,7 +7,7 @@ feature 'User views random dog in their area' do
     fill_in "Enter Zip Code", with: "02093"
     click_button "Search"
 
-    expect(page).to have_css "img"
+    expect(page).to have_css ".random-dog-container"
   end
 
   scenario 'by clicking next from random dog page' do
@@ -17,7 +17,7 @@ feature 'User views random dog in their area' do
 
     click_link "Flip"
 
-    expect(page).to have_css "img"
+    expect(page).to have_css ".random-dog-container"
   end
 
   scenario 'by clicking back from dog detail page' do
@@ -26,8 +26,8 @@ feature 'User views random dog in their area' do
     click_button "Search"
     click_link "Match"
 
-    click_link "Back"
+    click_link "Other Dogs in the Area"
 
-    expect(page).to have_css "img"
+    expect(page).to have_css ".random-dog-container"
   end
 end

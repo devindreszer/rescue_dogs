@@ -1,6 +1,8 @@
 class DogMatchesController < ApplicationController
   before_action :authenticate_user!
 
+  # display favorites, top dog, and matches
+  # order by newly added
   def index
     if params[:favorite]
       @dog_matches = current_user.dog_matches.where(is_favorite: true).order(:created_at).reverse
@@ -33,10 +35,12 @@ class DogMatchesController < ApplicationController
 
     else
 
+      # remove the crown if a dog is unfavorited
       if params[:is_favorite] == "false"
         @dog_match.is_top = "false"
       end
 
+      # set the dog favorite status
       @dog_match.is_favorite = params[:is_favorite]
     end
 

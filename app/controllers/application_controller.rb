@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  # redirect to dog page after sign in
   def after_sign_in_path_for(resource)
     if session[:dog_id].present?
       dog_path(session[:dog_id])
@@ -15,6 +16,7 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  # add username to devise standard setup
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :username
   end

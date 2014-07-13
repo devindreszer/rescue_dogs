@@ -16,7 +16,7 @@ class RandomDogsController < ApplicationController
     session[:dog_id] = @random_dog.id
     session[:zip] = zip
 
-    # Set a fortune cookie fortune for the dog
+    # Set a fortune for the dog and save it a the session hash
     @fortune = Fortune.new.get
     session[:fortune] = @fortune
   end

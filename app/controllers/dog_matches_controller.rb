@@ -5,13 +5,13 @@ class DogMatchesController < ApplicationController
   # order by newly added
   def index
     if params[:favorite]
-      @dog_matches = current_user.dog_matches.where(is_favorite: true).order(:created_at).reverse
+      @dog_matches = current_user.dog_matches.includes(dog: [{shelter: :address}]).where(is_favorite: true).order(:created_at).reverse
       @dogs = @dog_matches.map(&:dog)
     elsif params[:top_dog]
-      @dog_matches = current_user.dog_matches.where(is_top: true).order(:created_at).reverse
+      @dog_matches = current_user.dog_matches.includes(dog: [{shelter: :address}]).where(is_top: true).order(:created_at).reverse
       @dogs = @dog_matches.map(&:dog)
     else
-      @dog_matches = current_user.dog_matches.order(:created_at).reverse
+      @dog_matches = current_user.dog_matches.includes(dog: [{shelter: :address}]).order(:created_at).reverse
       @dogs = @dog_matches.map(&:dog)
     end
   end

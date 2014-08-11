@@ -74,3 +74,6 @@ gem 'foundation-rails'
 
 # add foundation icons
 gem 'foundation-icons-sass-rails'
+
+# include bullet
+gem "bullet", group: "development"

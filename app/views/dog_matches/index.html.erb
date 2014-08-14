@@ -10,5 +10,5 @@
 
 <hr>
 <ul class="large-block-grid-3 medium-block-grid-2 small-block-grid-1">
-  <%= render partial: "dog", collection: @dogs %>
+  <%= render partial: "dog", collection: @dog_matches.map(&:dog) %>
 </ul>

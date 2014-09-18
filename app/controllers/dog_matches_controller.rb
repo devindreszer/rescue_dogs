@@ -4,15 +4,11 @@ class DogMatchesController < ApplicationController
   # display favorites, top dog, and matches
   # order by newly added
   def index
+    @dog_matches = current_user.dog_matches.includes(dog: [{shelter: :address}]).order(created_at: :desc)
     if params[:favorite]
-      @dog_matches = current_user.dog_matches.includes(dog: [{shelter: :address}]).where(is_favorite: true).order(:created_at).reverse
-      @dogs = @dog_matches.map(&:dog)
+      @dog_matches = @dog_matches.where(is_favorite: true)
     elsif params[:top_dog]
-      @dog_matches = current_user.dog_matches.includes(dog: [{shelter: :address}]).where(is_top: true).order(:created_at).reverse
-      @dogs = @dog_matches.map(&:dog)
-    else
-      @dog_matches = current_user.dog_matches.includes(dog: [{shelter: :address}]).order(:created_at).reverse
-      @dogs = @dog_matches.map(&:dog)
+      @dog_matches = @dog_matches.where(is_top: true)
     end
   end
 

@@ -2,8 +2,8 @@ class Dog < ActiveRecord::Base
   GENDERS = {"M" => "male", "F" => "female"}
   SIZES = {"S" => "small", "M" => "medium", "L" => "large"}
   belongs_to :shelter
-  has_many :dog_matches, dependent: :destroy
-  has_many :users, through: :dog_matches
+  has_many :dog_queries, dependent: :destroy
+  has_many :users, through: :dog_queries
 
   attr_accessor :zip_error
 

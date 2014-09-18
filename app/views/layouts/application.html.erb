@@ -23,17 +23,17 @@
         <ul class="right">
           <% if user_signed_in? %>
             <li>
-              <%= link_to dog_matches_path, title: "Matches" do %>
+              <%= link_to dog_queries_path, title: "Matches" do %>
                 <i class="fi-check"></i> Matches
               <% end %>
             </li>
             <li>
-              <%= link_to dog_matches_path(favorite: true), title: "Favorites" do %>
+              <%= link_to dog_queries_path(favorite: true), title: "Favorites" do %>
                 <i class="fi-heart"></i> Favorites
               <% end %>
             </li>
             <li>
-              <%= link_to dog_matches_path(top_dog: true), title: "Top-Dog" do %>
+              <%= link_to dog_queries_path(top_dog: true), title: "Top-Dog" do %>
                 <i class="fi-crown"></i> Top Dog
               <% end %>
             </li>

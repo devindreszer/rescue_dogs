@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140712213322) do
+ActiveRecord::Schema.define(version: 20140918173028) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20140712213322) do
     t.text     "last_zip",     null: false
     t.boolean  "is_viewed"
     t.integer  "view_count"
+    t.boolean  "is_available"
   end
 
   add_index "dogs", ["shelter_id"], name: "index_dogs_on_shelter_id", using: :btree

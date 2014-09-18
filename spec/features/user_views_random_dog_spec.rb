@@ -21,7 +21,9 @@ feature 'User views random dog in their area' do
   end
 
   scenario 'by clicking back from dog detail page' do
+    devin = create(:user, username: "devin", email: "devin@example.com", password: "password")
     visit root_path
+    sign_in_as(devin)
     fill_in "Enter Zip Code", with: "02093"
     click_button "Search"
     click_link "Match"

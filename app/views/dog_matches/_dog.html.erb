@@ -1,3 +1,4 @@
+<% cache(dog) do %>
   <li class="dog-list">
     <%= link_to dog_path(dog.id) do %>
 
@@ -5,3 +6,4 @@
 
     <% end %>
   </li>
+<% end %>

@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  has_many :dog_matches, dependent: :destroy
-  has_many :dogs, through: :dog_matches
+  has_many :dog_queries, dependent: :destroy
+  has_many :dogs, through: :dog_queries
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

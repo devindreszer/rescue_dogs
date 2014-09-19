@@ -14,10 +14,54 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # if user is logged in, return current_user, else return guest_user
+  def current_or_guest_user
+    if current_user
+      if session[:guest_user_id]
+        logging_in
+        guest_user.destroy
+        session[:guest_user_id] = nil
+      end
+      current_user
+    else
+      guest_user
+    end
+  end
+
+  # find guest_user object associated with the current session,
+  # creating one as needed
+  def guest_user
+    # Cache the value the first time it's gotten.
+    @cached_guest_user ||= User.find(session[:guest_user_id] ||= create_guest_user.id)
+
+  rescue ActiveRecord::RecordNotFound # if session[:guest_user_id] invalid
+     session[:guest_user_id] = nil
+     guest_user
+  end
+
   protected
 
   # add username to devise standard setup
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :username
+  end
+
+  private
+
+  # called (once) when the user logs in, insert any code your application needs
+  # to hand off from guest_user to current_user.
+  def logging_in
+    guest_dog_queries = guest_user.dog_queries.all
+    guest_dog_queries.each do |dog_query|
+      dog_query.user_id = current_user.id
+      dog_query.save!
+    end
+  end
+
+  def create_guest_user
+    user = User.create(:username => "guest_#{Time.now.to_i}", :email => "guest_#{Time.now.to_i}#{rand(100)}@example.com")
+    user.save!(:validate => false)
+    session[:guest_user_id] = user.id
+    user
   end
 end

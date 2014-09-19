@@ -1,19 +1,19 @@
 class Dogfinder
-  COUNT = "25"
+  COUNT = "10"
 
   attr_accessor :zip_error
 
-  def collect(zip)
+  def collect(zip, offset)
     # Collect COUNT number of dogs from database
     # Catch invalid zip codes; set zip_error and return nil
     begin
-      petfinder_dogs = client.find_pets("dog", zip, count: COUNT)
+      petfinder_dogs = client.find_pets("dog", zip, {count: COUNT, offset: offset})
     rescue Petfinder::Error
       self.zip_error = "Invalid zip code"
       return
     end
 
-    @dogs = []
+    dogs = []
 
     # Add petfinder dogs and their shelters to the database
     # Then add it to the dog array returned to the controller
@@ -24,17 +24,15 @@ class Dogfinder
       if Dog.find_by(petfinder_id: petfinder_dog.id).nil?
         dog = shelter.dogs.build
         dog.set_from_petfinder(petfinder_dog)
-        dog.last_zip = zip
       else
         dog = Dog.find_by(petfinder_id: petfinder_dog.id)
-        dog.last_zip = zip
       end
 
       shelter.save
-      @dogs << dog
+      dogs << dog
     end
 
-    @dogs
+    dogs
   end
 
   def find(id)

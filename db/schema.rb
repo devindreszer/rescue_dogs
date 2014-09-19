@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140918173028) do
+ActiveRecord::Schema.define(version: 20140918221708) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20140918173028) do
 
   add_index "addresses", ["shelter_id"], name: "index_addresses_on_shelter_id", using: :btree
 
-  create_table "dog_matches", force: true do |t|
+  create_table "dog_queries", force: true do |t|
     t.integer  "dog_id"
     t.integer  "user_id"
     t.boolean  "is_favorite"
@@ -37,10 +37,13 @@ ActiveRecord::Schema.define(version: 20140918173028) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "fortune"
+    t.integer  "view_count"
+    t.boolean  "is_match"
+    t.text     "zip"
   end
 
-  add_index "dog_matches", ["dog_id"], name: "index_dog_matches_on_dog_id", using: :btree
-  add_index "dog_matches", ["user_id"], name: "index_dog_matches_on_user_id", using: :btree
+  add_index "dog_queries", ["dog_id"], name: "index_dog_queries_on_dog_id", using: :btree
+  add_index "dog_queries", ["user_id"], name: "index_dog_queries_on_user_id", using: :btree
 
   create_table "dogs", force: true do |t|
     t.text     "petfinder_id", null: false
@@ -54,7 +57,6 @@ ActiveRecord::Schema.define(version: 20140918173028) do
     t.integer  "shelter_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "last_zip",     null: false
     t.boolean  "is_viewed"
     t.integer  "view_count"
     t.boolean  "is_available"

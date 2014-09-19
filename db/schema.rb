@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140918203247) do
+ActiveRecord::Schema.define(version: 20140918221708) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20140918203247) do
     t.text     "fortune"
     t.integer  "view_count"
     t.boolean  "is_match"
+    t.text     "zip"
   end
 
   add_index "dog_queries", ["dog_id"], name: "index_dog_queries_on_dog_id", using: :btree
@@ -56,7 +57,6 @@ ActiveRecord::Schema.define(version: 20140918203247) do
     t.integer  "shelter_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "last_zip",     null: false
     t.boolean  "is_viewed"
     t.integer  "view_count"
     t.boolean  "is_available"

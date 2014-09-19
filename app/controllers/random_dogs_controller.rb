@@ -3,8 +3,9 @@ class RandomDogsController < ApplicationController
   def show
     zip = params[:zip]
     request_path = URI(request.referrer).path
+    user = current_or_guest_user
     dog = Dog.new
-    @random_dog = dog.random(zip, request_path)
+    @random_dog = dog.random(zip, request_path, user)
 
     # check for zip errors
     if dog.zip_error.present?

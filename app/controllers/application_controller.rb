@@ -51,18 +51,17 @@ class ApplicationController < ActionController::Base
   # called (once) when the user logs in, insert any code your application needs
   # to hand off from guest_user to current_user.
   def logging_in
-    # For example:
-    # guest_comments = guest_user.comments.all
-    # guest_comments.each do |comment|
-      # comment.user_id = current_user.id
-      # comment.save!
-    # end
+    guest_dog_queries = guest_user.dog_queries.all
+    guest_dog_queries.each do |dog_query|
+      dog_query.user_id = current_user.id
+      dog_query.save!
+    end
   end
 
   def create_guest_user
-    user = User.create(:name => "guest", :email => "guest_#{Time.now.to_i}#{rand(100)}@example.com")
+    user = User.create(:username => "guest_#{Time.now.to_i}", :email => "guest_#{Time.now.to_i}#{rand(100)}@example.com")
     user.save!(:validate => false)
-    session[:guest_user_id] = u.id
+    session[:guest_user_id] = user.id
     user
   end
 end

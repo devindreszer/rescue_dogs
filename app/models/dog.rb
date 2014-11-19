@@ -27,7 +27,7 @@ class Dog < ActiveRecord::Base
     self
   end
 
-  def random(zip, request_path, user)
+  def random(zip, user)
     matching_dog_queries = user.dog_queries.where(zip: zip)
     unviewed_dog_queries = matching_dog_queries.where(view_count: [0, nil])
 

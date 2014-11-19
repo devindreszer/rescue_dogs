@@ -15,7 +15,7 @@
     <div class="tagging">
       <!-- Favorites -->
       <p class="text-right">
-      <% dog_query = dog.dog_queries.where(user_id: current_user.id).first %>
+      <% dog_query = dog.dog_queries.where(user_id: @user.id).first %>
       <% if dog_query.is_favorite.present? %>
         <%= link_to dog_query_path(dog_query.id, is_favorite: false), method: :patch, title: "Unfavorite" do %>
           <i class="fi-heart unfavorite"></i>
@@ -41,4 +41,3 @@
     </div>
   </div>
 </div>
-

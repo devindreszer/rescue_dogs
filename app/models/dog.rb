@@ -35,7 +35,7 @@ class Dog < ActiveRecord::Base
       offset = (matching_dog_queries.count / Dogfinder::COUNT.to_i) * Dogfinder::COUNT.to_i
       new_dogs = api_collect(zip, offset)
 
-      unless new_dogs.present?
+      if self.zip_error.present?
         return
       end
 
@@ -62,7 +62,6 @@ class Dog < ActiveRecord::Base
 
     # check for zip code errors after collect method is called
     self.zip_error = dogfinder.zip_error if dogfinder.zip_error.present?
-    return
 
     random_dogs
   end

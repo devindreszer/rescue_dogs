@@ -1,9 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" itemscope itemtype="http://schema.org/Article">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>dog fortunes</title>
+
+  <!-- Go to www.addthis.com/dashboard to customize your tools -->
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-546bdeaa25646a10" async="async"></script>
+
+  <!-- Place this data between the <head> tags of your website -->
+  <title><%= @meta_title %></title>
+  <meta name="description" content="<%= @meta_description %>" />
+
+  <!-- Schema.org markup for Google+ -->
+  <meta itemprop="name" content="<%= @meta_title %>" />
+  <meta itemprop="description" content="<%= @meta_description %>" />
+  <meta itemprop="image" content="<%= @meta_image %>" />
+
+  <!-- Twitter Card data -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="<%= @meta_title %>" />
+  <meta name="twitter:description" content="<%= @meta_description %>" />
+  <meta name="twitter:image:src" content="<%= @meta_image %>" />
+
+  <!-- Open Graph data -->
+  <meta property="og:title" content="<%= @meta_title %>" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="<%= @meta_url %>" />
+  <meta property="og:image" content="<%= @meta_image %>" />
+  <meta property="og:description" content="<%= @meta_description %>" />
+  <meta property="og:site_name" content="Dog Fortunes" />
+
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag "vendor/modernizr" %>

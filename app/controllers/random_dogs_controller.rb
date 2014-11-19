@@ -20,5 +20,7 @@ class RandomDogsController < ApplicationController
     # Set a fortune for the dog and save it a the session hash
     @fortune = Fortune.new.get
     session[:fortune] = @fortune
+    @random_dog_name = @random_dog.name.split(/\b/).first.to_s
+    @random_dog_message = "#{@random_dog_name} says... #{@fortune}"
   end
 end

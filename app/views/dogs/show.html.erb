@@ -1,3 +1,8 @@
+<% @meta_title = "Dog Fortunes || #{@dog.name.split(/\b/).first}" %>
+<% @meta_description = "#{@dog.name.split(/\b/).first} says... #{@dog_query.fortune}" %>
+<% @meta_image = @dog.image %>
+<% @meta_url = "#{request.protocol}#{request.host}" %>
+
 <div class="info-page row">
   <div class="small-12 medium-4 columns">
     <%= render "shared/card", dog: @dog %>

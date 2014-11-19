@@ -1,3 +1,8 @@
+<% @meta_title = "Dog Fortunes" %>
+<% @meta_description = "Get your fortune told by an adoptable dog" %>
+<% @meta_image = image_url("gracie_banner.jpg") %>
+<% @meta_url = "#{request.protocol}#{request.host}" %>
+
 <h2>
   <% if params[:favorite] %>
     <%= @dog_matches.count %> Favorites

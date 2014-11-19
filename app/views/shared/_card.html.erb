@@ -16,25 +16,27 @@
       <!-- Favorites -->
       <p class="text-right">
       <% dog_query = dog.dog_queries.where(user_id: @user.id).first %>
-      <% if dog_query.is_favorite.present? %>
-        <%= link_to dog_query_path(dog_query.id, is_favorite: false), method: :patch, title: "Unfavorite" do %>
-          <i class="fi-heart unfavorite"></i>
-        <% end %>
-
-        <!-- Top Dog -->
-        <% if dog_query.is_top.present? %>
-          <%= link_to dog_query_path(dog_query.id, is_top: false), method: :patch, title: "remove-crown" do %>
-            <i class="fi-crown remove-crown"></i>
+      <% if dog_query.present? %>
+        <% if dog_query.is_favorite.present? %>
+          <%= link_to dog_query_path(dog_query.id, is_favorite: false), method: :patch, title: "Unfavorite" do %>
+            <i class="fi-heart unfavorite"></i>
           <% end %>
+
+          <!-- Top Dog -->
+          <% if dog_query.is_top.present? %>
+            <%= link_to dog_query_path(dog_query.id, is_top: false), method: :patch, title: "remove-crown" do %>
+              <i class="fi-crown remove-crown"></i>
+            <% end %>
+          <% else %>
+            <%= link_to dog_query_path(dog_query.id, is_top: true), method: :patch, title: "add-crown" do %>
+              <i class="fi-crown add-crown"></i>
+            <% end %>
+          <% end %>
+
         <% else %>
-          <%= link_to dog_query_path(dog_query.id, is_top: true), method: :patch, title: "add-crown" do %>
-            <i class="fi-crown add-crown"></i>
+          <%= link_to dog_query_path(dog_query.id, is_favorite: true), method: :patch, title: "Favorite" do %>
+            <i class="fi-heart favorite"></i>
           <% end %>
-        <% end %>
-
-      <% else %>
-        <%= link_to dog_query_path(dog_query.id, is_favorite: true), method: :patch, title: "Favorite" do %>
-          <i class="fi-heart favorite"></i>
         <% end %>
       <% end %>
       </p>
